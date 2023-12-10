@@ -41,10 +41,11 @@ Datasets/
 The labels.csv file should include columns for FILE_NAME, CATEGORY, and SUPER_CATEGORY, corresponding to the image file names and their labels.
 
 ## Usage
-Before running the code:
+Before running the code, please cd to downloaded dino_fsl folder:
 ```
 cd /path/to/dino_fsl/folder
 ```
+
 ### For within domain experiments run the following commands:
 
 #### Matching Networks (vitb16):
