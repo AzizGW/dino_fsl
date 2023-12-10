@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 For the dataset please refer to the original paper to download: https://meta-album.github.io
 
-Note: You should have all 30 datasets (mini version) downloaded in a folder called "Datasets" then place this folder in the same directory as the "Code" folder.
+Note: You should have all 30 datasets (mini version) downloaded in a folder called "Datasets" then place this folder inside 'dino_fsl' folder.
 
 ## Dataset Structure
 Organize your dataset as follows:
