@@ -3,6 +3,7 @@ from torch.utils.data import DataLoader
 from .data_preparation import create_N_way_few_shot_dataset, split_dataset,DomainDataset
 from ..model import DinoViTEmbedding
 from ..matching_networks import MatchingNetworks
+from ..prototypical_networks import PrototypicalNetworks
 from ..training import train
 from ..testing import testTheModel
 import gc
@@ -50,7 +51,7 @@ def startExperiment(transform,data_folder,train_domains,test_domains, embedding_
         # Init model
         dino_vit_embedding = DinoViTEmbedding(embedding_model_name, embedding_dim).to(device)
         matching_networks = MatchingNetworks(backbone=dino_vit_embedding,feature_dimension=embedding_dim).to(device)
-
+        prototypical_networks = PrototypicalNetworks(backbone=dino_vit_embedding).to(device)
         for domain in train_domains:
             print("Training Domain:", domain)
 
@@ -68,7 +69,8 @@ def startExperiment(transform,data_folder,train_domains,test_domains, embedding_
 
                 # Train the model
                 best_model_state,best_training_loss = train(matching_networks, train_support_loader, train_query_loader, num_epochs,device)
-
+                # Train Proto Net
+                # best_model_state,best_training_loss = train(prototypical_networks,train_support_loader, train_query_loader, num_epochs,device)
                 # Update the global best model state if the current task's model is better
                 if best_training_loss < global_best_training_loss:
                     global_best_training_loss = best_training_loss
@@ -86,6 +88,7 @@ def startExperiment(transform,data_folder,train_domains,test_domains, embedding_
         torch.save(global_best_model_state, 'best_model_state.pth')
         model_state = torch.load('best_model_state.pth')
         matching_networks.load_state_dict(model_state)
+        # prototypical_networks.load_state_dict(model_state)
 
         for domain in test_domains:
             print("Testing Domain:", domain)

@@ -5,12 +5,12 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 import torch.optim as optim
 import gc
 
-def train(matching_networks, support_loader, query_loader, num_epochs,device):
+def train(model, support_loader, query_loader, num_epochs,device):
     """
     Train the MatchingNetworks model and save the best model state.
 
     Args:
-        matching_networks: The MatchingNetworks model with DinoViTEmbedding as the backbone.
+        models: The MatchingNetworks model with DinoViTEmbedding as the backbone.
         support_loader: DataLoader for the support set.
         query_loader: DataLoader for the query set.
         num_epochs: Number of epochs to train the model.
@@ -22,7 +22,7 @@ def train(matching_networks, support_loader, query_loader, num_epochs,device):
     #, weight_decay=1e-5
 
     criterion = nn.NLLLoss()
-    optimizer = torch.optim.Adam(matching_networks.parameters(), lr=0.001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     
     # Initialize the learning rate scheduler
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5, verbose=True)
@@ -30,7 +30,7 @@ def train(matching_networks, support_loader, query_loader, num_epochs,device):
     best_training_loss = 100000.00
     best_model_state = None
 
-    matching_networks.train()  # Set the model to training mode
+    model.train()  # Set the model to training mode
 
     for epoch in range(num_epochs):
         running_loss = 0.0
@@ -47,10 +47,10 @@ def train(matching_networks, support_loader, query_loader, num_epochs,device):
             optimizer.zero_grad()
 
             # Process the support set
-            matching_networks.process_support_set(support_images, support_labels)
+            model.process_support_set(support_images, support_labels)
 
             # Predict query labels and compute loss
-            query_log_probabilities = matching_networks(query_images)
+            query_log_probabilities = model(query_images)
             loss = criterion(query_log_probabilities, query_labels)
             loss.backward()
             optimizer.step()
@@ -69,7 +69,7 @@ def train(matching_networks, support_loader, query_loader, num_epochs,device):
         epoch_accuracy = (correct_predictions / total_predictions) * 100
         if training_loss < best_training_loss:
             best_training_loss = training_loss
-            best_model_state = matching_networks.state_dict()
+            best_model_state = model.state_dict()
 
         print(f"Epoch {epoch + 1}/{num_epochs}, Training Loss: {training_loss:.4f}, Training Accuracy: {epoch_accuracy:.2f}%")
 
