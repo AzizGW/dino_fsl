@@ -90,7 +90,7 @@ python3 -m Code.Cross_Domain.main "PrototypicalNetworks" "facebook/dino-vitb16" 
 #### Prototypical Networks (vits16):
 ```
 python3 -m Code.Cross_Domain.main "PrototypicalNetworks" "facebook/dino-vits16" "/path/to/Code/folder"
-
+```
 
 
 ## License
