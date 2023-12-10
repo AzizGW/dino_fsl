@@ -4,31 +4,22 @@ This study explores the use of visual transformers (ViT) in combina- tion with s
 
 
 ## Prerequisites
-The code require a Python 3.0 or above to run
-
+The code require a Python 3.0 or above to run.
+Run the following command to install required libraries:
 ```
 pip install -r requirements.txt
 ```
 
-## Data
+## Data (Meta-Album) 
 
-You can use the Download_Data.ipynb to download All Datasets and it will create a folder for them to store locally.
+For the dataset please refer to the original paper to download: https://meta-album.github.io
 
-## Running Locally
-
-Just run
-
-## Running on Google Colab
-
-To run the model on Google Colab, upload the zip file using the Colab folder upload feature and execute the following command at the beginning of the notebook:
-
-
-Afterward, proceed to run the code cells in the notebook.
+Note: You should have all 30 datasets (mini version) downloaded in a folder called "Datasets" then place this folder in the same directory as the "Code" folder.
 
 ## Dataset Structure
 Organize your dataset as follows:
 ```python
-Data/
+Datasets/
 ├── dataset1/
 │   ├── images/
 │   │   ├── image1.jpg
@@ -50,12 +41,64 @@ Data/
 The labels.csv file should include columns for FILE_NAME, CATEGORY, and SUPER_CATEGORY, corresponding to the image file names and their labels.
 
 ## Usage
-Execute all cells in the notebook to train the model and evaluate its accuracy.
+Before running the code:
+```
+cd /path/to/dino_fsl/folder
+```
+### For within domain experiments run the following commands:
+
+#### Matching Networks (vitb16):
+```
+python3 -m Code.Within_Domain.main "MatchingNetworks" "facebook/dino-vitb16" "/path/to/Code/folder"
+
+```
+#### Matching Networks (vits16):
+```
+python3 -m Code.Within_Domain.main "MatchingNetworks" "facebook/dino-vits16" "/path/to/Code/folder"
+
+```
+#### Prototypical Networks (vitb16):
+```
+python3 -m Code.Within_Domain.main "PrototypicalNetworks" "facebook/dino-vitb16" "/path/to/Code/folder"
+
+```
+
+#### Prototypical Networks (vits16):
+```
+python3 -m Code.Within_Domain.main "PrototypicalNetworks" "facebook/dino-vits16" "/path/to/Code/folder"
+
+```
+### For Cross domain experiments run the following commands:
+
+#### Matching Networks (vitb16):
+```
+python3 -m Code.Cross_Domain.main "MatchingNetworks" "facebook/dino-vitb16" "/path/to/Code/folder"
+
+```
+#### Matching Networks (vits16):
+```
+python3 -m Code.Cross_Domain.main "MatchingNetworks" "facebook/dino-vits16" "/path/to/Code/folder"
+
+```
+#### Prototypical Networks (vitb16):
+```
+python3 -m Code.Cross_Domain.main "PrototypicalNetworks" "facebook/dino-vitb16" "/path/to/Code/folder"
+
+```
+
+#### Prototypical Networks (vits16):
+```
+python3 -m Code.Cross_Domain.main "PrototypicalNetworks" "facebook/dino-vits16" "/path/to/Code/folder"
+
+
 
 ## License
 This project is released under the MIT License. Refer to the LICENSE.md file for more details.
 
 ## Acknowledgments
-The model is built upon the Vision Transformer architecture, specifically using the vit-base-patch16-224-in21k model developed by Google Brain researchers and provided by the Hugging Face transformers library.
+This project has been greatly enhanced by the utilization of external resources and the contributions of the broader open-source community. We would like to extend our sincere gratitude to the following:
 
-We extend our gratitude to the creators of the ViT and PyTorch libraries for making the development of this model possible.
+Sicara's Easy Few-Shot Learning: A significant portion of the code used in this project was adapted from Sicara's "Easy Few-Shot Learning" repository on GitHub. Their comprehensive and well-structured implementation provided an excellent foundation for our work in few-shot learning. You can find their repository here: [Easy Few-Shot Learning](https://github.com/sicara/easy-few-shot-learning/tree/master) by Sicara.
+
+Facebook's DINO-ViT Models: Our project leverages the Facebook/dino-vit models, which have been instrumental in advancing our understanding and capabilities in the field of visual transformers. The models' robustness and versatility have significantly contributed to the success of our project.
+We are immensely grateful to these contributors for their pioneering work and for making their resources available to the community, thereby enabling us and others to build upon their innovations and push the boundaries of machine learning and artificial intelligence.
