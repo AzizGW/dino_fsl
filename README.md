@@ -100,7 +100,7 @@ This project is released under the MIT License. Refer to the LICENSE.md file for
 ## Acknowledgments
 This project has been greatly enhanced by the utilization of external resources and the contributions of the broader open-source community. We would like to extend our sincere gratitude to the following:
 
-Sicara's Easy Few-Shot Learning: A significant portion of the code used in this project was adapted from Sicara's "Easy Few-Shot Learning" repository on GitHub. Their comprehensive and well-structured implementation provided an excellent foundation for our work in few-shot learning. You can find their repository here: [Easy Few-Shot Learning](https://github.com/sicara/easy-few-shot-learning/tree/master) by Sicara.
+Sicara's Easy Few-Shot Learning: Our project leverages the code from easyFSL. This code was adapted from Sicara's "Easy Few-Shot Learning" repository on GitHub. Their comprehensive and well-structured implementation provided an excellent foundation for our work in few-shot learning. You can find their repository here: [Easy Few-Shot Learning](https://github.com/sicara/easy-few-shot-learning/tree/master) by Sicara.
 
 Facebook's DINO-ViT Models: Our project leverages the Facebook/dino-vit models, which have been instrumental in advancing our understanding and capabilities in the field of visual transformers. The models' robustness and versatility have significantly contributed to the success of our project.
 We are immensely grateful to these contributors for their pioneering work and for making their resources available to the community, thereby enabling us and others to build upon their innovations and push the boundaries of machine learning and artificial intelligence.
