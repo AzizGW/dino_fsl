@@ -102,5 +102,5 @@ This project has been greatly enhanced by the utilization of external resources 
 
 Sicara's Easy Few-Shot Learning: Our project leverages the code from easyFSL. This code was adapted from Sicara's "Easy Few-Shot Learning" repository on GitHub. Their comprehensive and well-structured implementation provided an excellent foundation for our work in few-shot learning. You can find their repository here: [Easy Few-Shot Learning](https://github.com/sicara/easy-few-shot-learning/tree/master) by Sicara.
 
-Facebook's DINO-ViT Models: Our project leverages the Facebook/dino-vit models, which have been instrumental in advancing our understanding and capabilities in the field of visual transformers. The models' robustness and versatility have significantly contributed to the success of our project.
+Facebook's DINO-ViT Models: Our project leverages the Facebook/dino-vit models, which have been instrumental in advancing our understanding and capabilities in the field of vision transformers. The models' robustness and versatility have significantly contributed to the success of our project.
 We are immensely grateful to these contributors for their pioneering work and for making their resources available to the community, thereby enabling us and others to build upon their innovations and push the boundaries of machine learning and artificial intelligence.
