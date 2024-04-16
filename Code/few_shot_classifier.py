@@ -11,7 +11,7 @@ import torch
 from torch import Tensor, nn
 
 from easyfsl.methods.utils import compute_prototypes
-
+print("test")
 
 class FewShotClassifier(nn.Module):
     """
