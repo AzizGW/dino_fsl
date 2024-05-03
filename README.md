@@ -95,7 +95,7 @@ python3 -m Code.Cross_Domain.main "PrototypicalNetworks" "facebook/dino-vits16" 
 
 
 ## License
-This project is released under the MIT License. Refer to the LICENSE.md file for more details.
+This project is released under the MIT License.
 
 ## Acknowledgments
 This project has been greatly enhanced by the utilization of external resources and the contributions of the broader open-source community. We would like to extend our sincere gratitude to the following:
